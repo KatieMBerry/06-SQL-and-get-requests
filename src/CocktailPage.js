@@ -6,7 +6,6 @@ export default class CocktailPage extends React.Component {
     state = {
         cocktails: [],
         loading: false,
-        name: 'gin_and_juicey'
     }
 
     componentDidMount = async () => {
@@ -15,36 +14,27 @@ export default class CocktailPage extends React.Component {
 
     fetchCocktail = async () => {
         this.setState({ loading: true })
-        const response = await request.get(`https://pacific-garden-61897.herokuapp.com/`);
+        const response = await request.get(`https://pacific-garden-61897.herokuapp.com/cocktails`);
 
         this.setState({
-            cocktail: response.body.results,
+            cocktails: response.body,
             loading: false,
-            count: response.body.count
+            // count: response.body.count
         });
     }
 
-    handleSubmit = async (e) => {
-        e.prevent.default();
-        await this.fetchCocktail();
-    }
+    // handleSubmit = async (e) => {
+    //     e.prevent.default();
+    //     await this.fetchCocktail();
+    // }
 
-    handleChange = async (e) => {
-        this.setState({ name: e.target.value });
-
-    }
+    // handleChange = async (e) => {
+    //     this.setState({ name: e.target.value });
+    // }
 
     render() {
+        console.log(this.state.cocktails);
         return (<>
-            <div className="search-div">
-                <form onSubmit={this.handleSubmit}>
-                    <input placeholder="Search by Name" className="search-bar" onChange={this.handleChange} />
-                    <button className="search-button">Submit</button>
-                </form>
-                <div>
-                    {this.state.count} total cocktails in query
-            </div>
-            </div>
             <div className="fetch">
                 <div className="cocktail-fetch">
                     {
@@ -61,7 +51,7 @@ export default class CocktailPage extends React.Component {
                                 <div key={cocktail.name} >
                                     <div className="poke-card">
                                         <h2> {cocktail.name}</h2>
-                                        <img src={cocktail.img} alt={cocktail.name} width="100" height="100" />
+                                        {/* <img src={cocktail.img} alt={cocktail.name} width="100" height="100" /> */}
                                         <div>Type: {cocktail.strength}</div>
                                         <div>Attack: {cocktail.alcohol_type}</div>
                                         <div>Defense: {cocktail.hot_drink}</div></div>
