@@ -52,9 +52,9 @@ export default class CocktailPage extends React.Component {
                                     <div className="poke-card">
                                         <h2> {cocktail.name}</h2>
                                         {/* <img src={cocktail.img} alt={cocktail.name} width="100" height="100" /> */}
-                                        <div>Type: {cocktail.strength}</div>
-                                        <div>Attack: {cocktail.alcohol_type}</div>
-                                        <div>Defense: {cocktail.hot_drink}</div></div>
+                                        <div>Strength: {cocktail.strength}</div>
+                                        <div>Alcohol Type: {cocktail.alcohol_type}</div>
+                                        <div>Hot Drink: {cocktail.hot_drink}</div></div>
                                 </div>)
                     }
                 </div>
