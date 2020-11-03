@@ -1,8 +1,9 @@
 import React from "react";
 import './App.css';
-import Header from 'Header.js';
+import Header from './Header.js';
 import HomePage from './HomePage.js';
-import CocktailPage from 'CocktailPage.js';
+import CocktailPage from './CocktailPage.js';
+
 
 import {
   BrowserRouter as Router,
