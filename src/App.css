@@ -1,0 +1,88 @@
+body {
+  width: 100%;
+  background-color: black;
+  color: aqua;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 600px) {
+  .fetch {
+    background: orange;
+  }
+}
+
+
+@media (min-width: 900px) {
+  .fetch {
+    background:lightblue;
+  }
+}
+
+.header {
+  width: 100%;
+  font-size: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+ul {
+  list-style: none;
+
+}
+
+
+.fetch {
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  border: pink solid 5px;
+}
+
+.poke-card {
+  height: 250px;
+  padding: 30px;
+  margin: 10px;
+  border: solid purple 1px;
+  align-content: center;
+  justify-content: center;
+}
+
+.cocktail-fetch {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.search-bar {
+  height: 30px;
+  width: 300px;
+  background-color: pink;
+  color: black;
+  font-size: 20px;
+  text-align: center;
+}
+
+.search-button {
+  height: 30px;
+  width: 200px;
+  margin-top: 10px;
+}
+
+.search-div, .order {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
