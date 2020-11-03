@@ -15,7 +15,7 @@ export default class CocktailPage extends React.Component {
 
     fetchCocktail = async () => {
         this.setState({ loading: true })
-        const response = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?page=${this.state.pageNumber}&perPage=20`);
+        const response = await request.get(`https://pacific-garden-61897.herokuapp.com/`);
 
         this.setState({
             cocktail: response.body.results,
