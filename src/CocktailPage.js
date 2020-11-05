@@ -19,18 +19,8 @@ export default class CocktailPage extends React.Component {
         this.setState({
             cocktails: response.body,
             loading: false,
-            // count: response.body.count
         });
     }
-
-    // handleSubmit = async (e) => {
-    //     e.prevent.default();
-    //     await this.fetchCocktail();
-    // }
-
-    // handleChange = async (e) => {
-    //     this.setState({ name: e.target.value });
-    // }
 
     render() {
         console.log(this.state.cocktails);

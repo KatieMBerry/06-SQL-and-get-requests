@@ -3,6 +3,7 @@ import './App.css';
 import Header from './Header.js';
 import HomePage from './HomePage.js';
 import CocktailPage from './CocktailPage.js';
+import CreateCocktail from './CreateCocktail.js';
 
 
 import {
@@ -28,6 +29,11 @@ export default class App extends React.Component {
               path="/cocktails"
               exact
               render={(routerProps) => <CocktailPage {...routerProps} />}
+            />
+            <Route
+              path="/create"
+              exact
+              render={(routerProps) => <CreateCocktail {...routerProps} />}
             />
           </Switch>
         </Router>

@@ -13,6 +13,9 @@ export default class Header extends Component {
                     <li>
                         <Link to="/cocktails">CocktailPage</Link>
                     </li>
+                    <li>
+                        <Link to="/create">Create a Cocktail</Link>
+                    </li>
                 </ul>
             </div>
 
