@@ -27,10 +27,11 @@ export default class CreateCocktail extends Component {
             name: this.setState.cocktailName,
             alcohol_id: this.setState.alcoholId,
             strength: this.setState.cocktailStrength,
-            hot_drink: this.setState.hotDrink
+            hot_drink: this.setState.hotDrink,
+            owner_id: user.userId
         };
 
-        const cocktail = await request
+        await request
             .post(`https://pacific-garden-61897.herokuapp.com/cocktails`)
             .send(newCocktail);
 
