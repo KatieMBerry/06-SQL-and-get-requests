@@ -32,9 +32,12 @@ body {
 
 ul {
   list-style: none;
-
 }
 
+label {
+  display: inline;
+  margin: 5px;
+}
 
 .fetch {
   background-color: black;
