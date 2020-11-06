@@ -9,25 +9,31 @@ export default class CreateCocktail extends Component {
 
     state = {
         name: '',
-        alcohols: [],
-        hot_drink: []
+        alcoholId: 1,
+        strength: 1,
+        hot_drink: true,
+        alcohols: []
     }
 
     componentDidMount = async () => {
         const response = await request.get(`https://pacific-garden-61897.herokuapp.com/alcohols`);
-
-        this.setState({ alcohols: response.body });
+        // const cocktails = await request.get(`https://pacific-garden-61897.herokuapp.com/cocktails`);
+        this.setState({
+            alcohols: response.body
+            // hot_drink: cocktails.body
+        });
     }
 
 
+
     handleSubmit = async (e) => {
-        e.prevent.default();
+        e.preventDefault();
 
         const newCocktail = {
-            name: this.setState.cocktailName,
-            alcohol_id: this.setState.alcoholId,
-            strength: this.setState.cocktailStrength,
-            hot_drink: this.setState.hotDrink,
+            name: this.state.name,
+            alcohol_id: this.state.alcoholId,
+            strength: this.state.strength,
+            hot_drink: this.state.hot_drink,
             owner_id: user.userId
         };
 
@@ -35,25 +41,31 @@ export default class CreateCocktail extends Component {
             .post(`https://pacific-garden-61897.herokuapp.com/cocktails`)
             .send(newCocktail);
 
-        this.props.history.push('/');
+        console.log(this.state);
+        // this.props.history.push('/cocktails');
+    }
+
+    handleChange = (e) => {
+        this.setState({ alcoholId: e.target.value });
     }
 
     render() {
+
         return (
             <div>
                 <h1>Create a Cocktail</h1>
                 <form className="form" onSubmit={this.handleSubmit}>
                     <label>
                         Name
-                        <input onChange={e => this.setState({ cocktailName: e.target.value })} type="text" />
+                        <input onChange={e => this.setState({ name: e.target.value })} type="text" />
                     </label>
 
                     <label>
                         Alcohol Type
                         <select onChange={this.handleChange}>
                             {
-                                this.state.alcohols.map(type => <option key={type.id} value={type.id}>
-                                    {type.type}
+                                this.state.alcohols.map(alcohol => <option key={alcohol.type} value={alcohol.id}>
+                                    {alcohol.type}
                                 </option>)
                             }
                         </select>
@@ -61,17 +73,20 @@ export default class CreateCocktail extends Component {
 
                     <label>
                         Strength
-                    <input onChange={e => this.setState({ cocktailStrength: e.target.value })} type="number" />
+                    <input onChange={e => this.setState({ strength: e.target.value })} type="number" />
                     </label>
 
                     <label>
                         Hot Drink?
-                        <select onChange={e => this.setState({ hotDrink: e.target.value })} type="text">
-                            {/* {
-                                this.state.cocktails.map(cocktail => <option key={cocktail.hot_drink} value={cocktail.hot_drink}>
-                                    {cocktail.hot_drink}
+                        <select onChange={e => this.setState({ hot_drink: e.target.value })} >
+
+                            <option value={true}>
+                                True
                                 </option>)
-                            } */}
+                                <option value={false}>
+                                False
+                                </option>)
+
                         </select>
                     </label>
 
