@@ -32,7 +32,7 @@ export default class UpdateCocktail extends Component {
         this.setState({
             alcohols,
             name: cocktail.name,
-            alcoholId: matchingAlcohol.id,
+            alcoholId: matchingAlcohol.alcohol_id,
             strength: cocktail.strength,
             hot_drink: cocktail.hot_drink
         })
