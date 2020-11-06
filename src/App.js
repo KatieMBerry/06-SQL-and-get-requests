@@ -37,7 +37,7 @@ export default class App extends React.Component {
               render={(routerProps) => <CreateCocktail {...routerProps} />}
             />
             <Route
-              path="/update"
+              path="/update/:id"
               exact
               render={(routerProps) => <UpdateCocktail {...routerProps} />}
             />

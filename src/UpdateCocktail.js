@@ -23,16 +23,15 @@ export default class UpdateCocktail extends Component {
     componentDidMount = async () => {
         const alcohols = await fetchAlcohols();
         const cocktail = await fetchOneCocktail(this.props.match.params.id);
-        const alcoholAsString = cocktail.alcohol_id;
 
         const matchingAlcohol = alcohols.find((alcohol) => {
-            return alcohol.type === alcoholAsString
+            return alcohol.type === cocktail.type;
         });
 
         this.setState({
             alcohols,
             name: cocktail.name,
-            alcoholId: matchingAlcohol.alcohol_id,
+            alcoholId: matchingAlcohol.id,
             strength: cocktail.strength,
             hot_drink: cocktail.hot_drink
         })
@@ -54,16 +53,8 @@ export default class UpdateCocktail extends Component {
         this.props.history.push('/');
     }
 
-    handleChange = async (e) => {
-        this.setState({
-            alcoholId: e.target.value,
-            name: e.target.value,
-            strength: e.target.value,
-            hot_drink: e.target.value
-        });
-    }
-
     render() {
+
         return (
             <div>
                 <h1>Update a Cocktail</h1>
@@ -71,16 +62,20 @@ export default class UpdateCocktail extends Component {
                     <label>
                         Name
                         <input
-                            onChange={this.handleChange}
+                            value={this.state.name}
+                            onChange={e => this.setState({ name: e.target.value })}
                             type="text" />
                     </label>
 
                     <label>
                         Alcohol Type
-                        <select onChange={this.handleChange}>
+                        <select onChange={e => this.setState({ alcoholId: e.target.value })}>
                             {
                                 this.state.alcohols.map(alcohol =>
-                                    <option key={alcohol.type} value={alcohol.id}>
+                                    <option
+                                        selected={this.state.alcoholId === alcohol.id}
+                                        key={alcohol.type}
+                                        value={alcohol.id}>
                                         {alcohol.type}
                                     </option>)
                             }
@@ -91,13 +86,13 @@ export default class UpdateCocktail extends Component {
                         Strength
                         <input
                             value={this.state.strength}
-                            onChange={e => this.handleChange}
+                            onChange={e => this.setState({ strength: e.target.value })}
                             type="number" />
                     </label>
 
                     <label>
                         Hot Drink?
-                        <select onChange={this.handleChange} >
+                        <select onChange={e => this.setState({ hot_drink: e.target.value })} >
                             <option value={true}>
                                 True
                                 </option>)
