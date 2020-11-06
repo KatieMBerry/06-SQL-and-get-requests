@@ -16,9 +16,6 @@ export default class Header extends Component {
                     <li>
                         <Link to="/create">Create a Cocktail</Link>
                     </li>
-                    <li>
-                        <Link to="/update">Update a Cocktail</Link>
-                    </li>
                 </ul>
             </div>
         )

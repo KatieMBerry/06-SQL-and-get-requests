@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { fetchAlcohols, createCocktail } from './fetches.js';
+import { getAlcohols, makeCocktail } from './utils.js';
 
 const user = {
     userId: 1
@@ -16,14 +16,14 @@ export default class CreateCocktail extends Component {
     }
 
     componentDidMount = async () => {
-        const alcohols = await fetchAlcohols();
+        const alcohols = await getAlcohols();
         this.setState({ alcohols });
     }
 
     handleSubmit = async (e) => {
         e.preventDefault();
 
-        await createCocktail({
+        await makeCocktail({
             name: this.state.name,
             alcohol_id: this.state.alcoholId,
             strength: this.state.strength,

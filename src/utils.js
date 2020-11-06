@@ -1,6 +1,6 @@
 import request from 'superagent';
 
-export async function fetchCocktails() {
+export async function getAllCocktails() {
     try {
         const response = await request.get(`https://pacific-garden-61897.herokuapp.com/cocktails`);
 
@@ -10,7 +10,7 @@ export async function fetchCocktails() {
     }
 }
 
-export async function fetchOneCocktail(someId) {
+export async function getCocktail(someId) {
     try {
         const response = await request.get(`https://pacific-garden-61897.herokuapp.com/cocktails/${someId}`);
 
@@ -20,7 +20,7 @@ export async function fetchOneCocktail(someId) {
     }
 }
 
-export async function fetchAlcohols() {
+export async function getAlcohols() {
     try {
         const response = await request.get(`https://pacific-garden-61897.herokuapp.com/alcohols`);
 
@@ -30,7 +30,7 @@ export async function fetchAlcohols() {
     }
 }
 
-export async function createCocktail(newCocktail) {
+export async function makeCocktail(newCocktail) {
     try {
         await request
             .post(`https://pacific-garden-61897.herokuapp.com/cocktails`)

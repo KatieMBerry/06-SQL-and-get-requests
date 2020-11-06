@@ -1,5 +1,5 @@
 import React from 'react';
-import { fetchCocktails } from './fetches.js';
+import { getAllCocktails } from './utils.js';
 import { Link } from 'react-router-dom';
 
 export default class CocktailPage extends React.Component {
@@ -10,7 +10,7 @@ export default class CocktailPage extends React.Component {
 
     componentDidMount = async () => {
         this.setState({ loading: true })
-        const cocktails = await fetchCocktails();
+        const cocktails = await getAllCocktails();
 
         this.setState({
             cocktails,
