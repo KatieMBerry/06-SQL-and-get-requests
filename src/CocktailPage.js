@@ -9,11 +9,12 @@ export default class CocktailPage extends React.Component {
     }
 
     componentDidMount = async () => {
+        this.setState({ loading: true })
         const cocktails = await fetchCocktails();
 
         this.setState({
             cocktails,
-            loading: true
+            loading: false
         });
     }
 
@@ -33,8 +34,8 @@ export default class CocktailPage extends React.Component {
                                 className="giphy-embed"
                                 allowFullScreen />
                             : cocktails.map(cocktail =>
-                                <Link style={{ color: 'inherit', textDecoration: 'inherit' }} to={`/update/${cocktails.name}`}>
-                                    <div key={cocktail.name} >
+                                <Link style={{ color: 'inherit', textDecoration: 'inherit' }} to={`/update/${cocktail.id}`}>
+                                    <div key={cocktail.type} >
                                         <div className="cocktail-card">
                                             <h2>{cocktail.name}</h2>
                                             {/* <img src={cocktail.img} alt={cocktail.name} width="100" height="100" /> */}
