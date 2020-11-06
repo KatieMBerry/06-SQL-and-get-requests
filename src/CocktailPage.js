@@ -1,6 +1,6 @@
 import React from 'react';
 import { fetchCocktails } from './fetches.js';
-
+import { Link } from 'react-router-dom';
 
 export default class CocktailPage extends React.Component {
     state = {
@@ -32,15 +32,18 @@ export default class CocktailPage extends React.Component {
                                 frameBorder="0"
                                 className="giphy-embed"
                                 allowFullScreen />
-                            : cocktails.cocktails.map(cocktail =>
-                                <div key={cocktail.name} >
-                                    <div className="poke-card">
-                                        <h2> {cocktail.name}</h2>
-                                        {/* <img src={cocktail.img} alt={cocktail.name} width="100" height="100" /> */}
-                                        <div>Strength: {cocktail.strength}</div>
-                                        <div>Alcohol Type: {cocktail.type}</div>
-                                        <div>Hot Drink: {cocktail.hot_drink.toString()}</div></div>
-                                </div>)
+                            : cocktails.map(cocktail =>
+                                <Link style={{ color: 'inherit', textDecoration: 'inherit' }} to={`/update/${cocktails.name}`}>
+                                    <div key={cocktail.name} >
+                                        <div className="cocktail-card">
+                                            <h2>{cocktail.name}</h2>
+                                            {/* <img src={cocktail.img} alt={cocktail.name} width="100" height="100" /> */}
+                                            <div key={cocktail.strength}>Strength: {cocktail.strength}</div>
+                                            <div key={cocktail.type}>Alcohol Type: {cocktail.type}</div>
+                                            <div key={cocktail.hot_drink}>Hot Drink: {cocktail.hot_drink.toString()}</div>
+                                        </div>
+                                    </div>
+                                </Link>)
                     }
                 </div>
             </div></>
