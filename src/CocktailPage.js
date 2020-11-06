@@ -1,34 +1,29 @@
 import React from 'react';
-import request from 'superagent';
+import { fetchCocktails } from './fetches.js';
 
 
 export default class CocktailPage extends React.Component {
     state = {
         cocktails: [],
-        loading: false,
+        loading: false
     }
 
     componentDidMount = async () => {
-        await this.fetchCocktail();
-    }
-
-    fetchCocktail = async () => {
-        this.setState({ loading: true })
-        const response = await request.get(`https://pacific-garden-61897.herokuapp.com/cocktails`);
+        const cocktails = await fetchCocktails();
 
         this.setState({
-            cocktails: response.body,
-            loading: false,
+            cocktails,
+            loading: true
         });
     }
 
     render() {
-        console.log(this.state.cocktails);
+        const { cocktails } = this.state
         return (<>
             <div className="fetch">
                 <div className="cocktail-fetch">
                     {
-                        this.state.loading
+                        cocktails.loading
                             ? <iframe
                                 src="https://giphy.com/embed/xTk9ZvMnbIiIew7IpW"
                                 title={Math.random()}
@@ -37,7 +32,7 @@ export default class CocktailPage extends React.Component {
                                 frameBorder="0"
                                 className="giphy-embed"
                                 allowFullScreen />
-                            : this.state.cocktails.map(cocktail =>
+                            : cocktails.cocktails.map(cocktail =>
                                 <div key={cocktail.name} >
                                     <div className="poke-card">
                                         <h2> {cocktail.name}</h2>
