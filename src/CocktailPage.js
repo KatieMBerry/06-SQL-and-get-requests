@@ -32,7 +32,7 @@ export default class CocktailPage extends React.Component {
                                 frameBorder="0"
                                 className="giphy-embed"
                                 allowFullScreen />
-                            : cocktails.cocktails.map(cocktail =>
+                            : cocktails.map(cocktail =>
                                 <div key={cocktail.name} >
                                     <div className="poke-card">
                                         <h2> {cocktail.name}</h2>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { fetchAlcohols, createCocktail } from 'fetches.js';
+import { fetchAlcohols, createCocktail } from './fetches.js';
 
 const user = {
     userId: 1
