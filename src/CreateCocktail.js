@@ -42,7 +42,7 @@ export default class CreateCocktail extends Component {
             .send(newCocktail);
 
         console.log(this.state);
-        // this.props.history.push('/cocktails');
+        this.props.history.push('/cocktails');
     }
 
     handleChange = (e) => {
