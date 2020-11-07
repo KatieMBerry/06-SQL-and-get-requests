@@ -38,7 +38,6 @@ export default class CocktailPage extends React.Component {
                                     <div key={cocktail.type} >
                                         <div className="cocktail-card">
                                             <h2>{cocktail.name}</h2>
-                                            {/* <img src={cocktail.img} alt={cocktail.name} width="100" height="100" /> */}
                                             <div key={cocktail.strength}>Strength: {cocktail.strength}</div>
                                             <div key={cocktail.type}>Alcohol Type: {cocktail.type}</div>
                                             <div key={cocktail.hot_drink}>Hot Drink: {cocktail.hot_drink.toString()}</div>

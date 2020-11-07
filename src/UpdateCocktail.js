@@ -58,14 +58,7 @@ export default class UpdateCocktail extends Component {
         e.preventDefault();
 
         await deleteCocktail(
-            this.props.match.params.id,
-            {
-                name: this.state.name,
-                alcohol_id: this.state.alcoholId,
-                strength: this.state.strength,
-                hot_drink: this.state.hot_drink,
-                owner_id: user.userId
-            });
+            this.props.match.params.id);
 
         this.props.history.push('/cocktails');
     }
@@ -122,8 +115,11 @@ export default class UpdateCocktail extends Component {
                             </select>
                         </label>
                         <button>Submit</button>
-                        <button className="delete-button"
-                            onSubmit={this.handleDelete}>Delete Cocktail</button>
+                    </form>
+                </div>
+                <div>
+                    <form onSubmit={this.handleDelete}>
+                        <button className="delete-button" >Delete Cocktail</button>
                     </form>
                 </div>
             </>
