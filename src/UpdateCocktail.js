@@ -110,7 +110,9 @@ export default class UpdateCocktail extends Component {
 
                         <label>
                             Hot Drink?
-                        <select onChange={e => this.setState({ hot_drink: e.target.value })} >
+                        <select
+                                value={this.state.hot_drink}
+                                onChange={e => this.setState({ hot_drink: e.target.value })} >
                                 <option value={false}>
                                     False
                                 </option>
@@ -120,12 +122,8 @@ export default class UpdateCocktail extends Component {
                             </select>
                         </label>
                         <button>Submit</button>
-                    </form>
-                </div>
-
-                <div>
-                    <form className="form" onSubmit={this.handleDelete}>
-                        <button>Delete</button>
+                        <button className="delete-button"
+                            onSubmit={this.handleDelete}>Delete Cocktail</button>
                     </form>
                 </div>
             </>

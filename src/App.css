@@ -36,6 +36,19 @@ ul {
 
 label {
   display: inline;
+  margin: 10px;
+}
+
+input {
+  display: inline;
+  
+}
+
+button {
+  background-color: aqua;
+  color: black;
+  font-weight: bold;
+  border:purple 5px solid;
   margin: 5px;
 }
 
@@ -88,4 +101,11 @@ label {
   justify-content: center;
   align-items: center;
   margin: 10px;
+}
+
+.delete {
+  background-color: black;
+  color: aqua;
+  height: 20px;
+  width: 50px;
 }
